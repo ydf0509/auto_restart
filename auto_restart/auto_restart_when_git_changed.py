@@ -20,7 +20,7 @@ script_name = command_args.script_name
 
 def restart(args=None):
     threading.Thread(target=os.system, args=(start_shell_str,)).start()
-
+    kill_str = f'''ps -aux|grep {script_name} |grep -v grep|awk '{{print $2}}' |xargs kill -9'''
     while True:
         time.sleep(20)
         try:
@@ -30,11 +30,11 @@ def restart(args=None):
                 print('no update')
                 continue
         except Exception as e:  # 只要不在205的dev分支手动修改文件，一般不会出现拉取报错。
-            subprocess.getstatusoutput(f'''ps -aux|grep {script_name} |grep -v grep|awk '{{print $2}}' |xargs kill -9''')
+            subprocess.getstatusoutput(kill_str)
             print(e)
             break
         # subprocess.getstatusoutput(cmd_str)
-        print('git内容更新了，执行语句：',start_shell_str)
+        print('git内容更新了，执行语句：',kill_str,start_shell_str)
         threading.Thread(target=os.system, args=(start_shell_str,)).start()
 
 
