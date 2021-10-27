@@ -24,7 +24,7 @@ def restart(args=None):
     # kill_str = f'''ps -aux|grep {script_name} |grep -v grep|grep -v auto_restart_when_git_changed |grep -v  auto_restart_tool|awk '{{print $2}}' |xargs kill -9;'''
     kill_str = f'''ps auxww | grep '{start_shell_str}' | grep -v grep|grep -v auto_restart_when_git_changed |grep -v  auto_restart_tool | awk '{{print $2}}' | xargs kill;'''
     os.system(kill_str)
-    start_shell_str_full = f''' cd {project_root_dir};export PYTHONPATH=./:$PYTHONPATH;{start_shell_str}'''
+    start_shell_str_full = f''' cd {project_root_dir};export PYTHONPATH=./:$PYTHONPATH;export kill_flag='{start_shell_str}';{start_shell_str}'''
     threading.Thread(target=os.system, args=(start_shell_str_full,)).start()
     while True:
         time.sleep(20)

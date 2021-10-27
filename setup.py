@@ -11,7 +11,7 @@ print(filepath)
 
 setup(
     name='auto_restart',  #
-    version="1.8",
+    version="1.9",
     description=('auto_restart'),
     keywords=("auto_restart", 'auto_restart'),
     # long_description=open('README.md', 'r',encoding='utf8').read(),
@@ -52,7 +52,7 @@ setup(
 python setup.py sdist upload -r pypi
 
 
-python setup.py sdist ; twine upload dist/auto_restart-1.8.tar.gz
+python setup.py sdist ; twine upload dist/auto_restart-1.9.tar.gz
 twine upload dist/*
 
 
