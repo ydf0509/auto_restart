@@ -23,7 +23,7 @@ def restart(args=None):
     print('00000')
     # os.system(kill_str)
     print(kill_str)
-    subprocess.getstatusoutput(kill_str)
+    os.system(kill_str)
     print(1111)
     threading.Thread(target=os.system, args=(start_shell_str,)).start()
     print(2222)
