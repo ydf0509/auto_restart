@@ -11,7 +11,7 @@ print(filepath)
 
 setup(
     name='auto_restart',  #
-    version="0.3",
+    version="0.4",
     description=('auto_restart'),
     keywords=("auto_restart", 'auto_restart'),
     # long_description=open('README.md', 'r',encoding='utf8').read(),
@@ -51,9 +51,9 @@ setup(
 python setup.py sdist upload -r pypi
 
 
-python setup.py sdist ; twine upload dist/auto_restart-0.3.tar.gz
+python setup.py sdist ; twine upload dist/auto_restart-0.4.tar.gz
 twine upload dist/*
 
 
-python -m pip install auto_restart --upgrade -i https://pypi.org/simple   # 及时的方式，不用等待 阿里云 豆瓣 同步
+python -m pip3 install auto_restart --upgrade -i https://pypi.org/simple   # 及时的方式，不用等待 阿里云 豆瓣 同步
 """

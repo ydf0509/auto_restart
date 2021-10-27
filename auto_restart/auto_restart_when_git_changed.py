@@ -26,7 +26,7 @@ def restart(args=None):
         try:
             r1 = subprocess.getstatusoutput('git pull')
             print(r1[1])
-            if 'Already up-to-date' in r1[1]:
+            if 'Already up-to-date' in r1[1] or '已经是最新的' in r1[1]:
                 print('no update')
                 continue
         except Exception as e:  # 只要不在205的dev分支手动修改文件，一般不会出现拉取报错。
@@ -34,7 +34,7 @@ def restart(args=None):
             print(e)
             break
         # subprocess.getstatusoutput(cmd_str)
-        print('执行：',start_shell_str)
+        print('git内容更新了，执行语句：',start_shell_str)
         threading.Thread(target=os.system, args=(start_shell_str,)).start()
 
 
