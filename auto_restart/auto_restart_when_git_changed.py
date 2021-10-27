@@ -17,10 +17,9 @@ start_shell_str = command_args.start_shell_str
 script_name = command_args.script_name
 
 
-
 def restart(args=None):
-    threading.Thread(target=os.system, args=(start_shell_str,)).start()
-    kill_str = f'''ps -aux|grep {script_name} |grep -v grep|awk '{{print $2}}' |xargs kill -9'''
+    kill_str = f'''ps -aux|grep {script_name} |grep -v grep|awk '{{print $2}}' |xargs kill -9;'''
+    threading.Thread(target=os.system, args=(kill_str + start_shell_str,)).start()
     while True:
         time.sleep(20)
         try:
@@ -34,8 +33,8 @@ def restart(args=None):
             print(e)
             break
         # subprocess.getstatusoutput(cmd_str)
-        print('git内容更新了，执行语句：',kill_str,start_shell_str)
-        threading.Thread(target=os.system, args=(start_shell_str,)).start()
+        print('git内容更新了，执行语句：', kill_str, start_shell_str)
+        threading.Thread(target=os.system, args=(kill_str + start_shell_str,)).start()
 
 
 if __name__ == '__main__':

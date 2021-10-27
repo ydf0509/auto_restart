@@ -11,7 +11,7 @@ print(filepath)
 
 setup(
     name='auto_restart',  #
-    version="0.5",
+    version="0.6",
     description=('auto_restart'),
     keywords=("auto_restart", 'auto_restart'),
     # long_description=open('README.md', 'r',encoding='utf8').read(),
