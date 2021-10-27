@@ -18,8 +18,8 @@ script_name = command_args.script_name
 
 
 def restart(args=None):
-    kill_str = f'''ps -aux|grep {script_name} |grep -v grep|awk '{{print $2}}' |xargs kill -9;'''
-    subprocess.getstatusoutput('git pull')
+    kill_str = f'''ps -aux|grep {script_name} |grep -v grep|awk '{{print $2}}' |xargs kill -9;git pull'''
+    # subprocess.getstatusoutput('git pull')
     print('00000')
     os.system(kill_str)
     print(1111)
