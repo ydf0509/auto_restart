@@ -9,9 +9,9 @@ import argparse
 """
 
 parser = argparse.ArgumentParser('helper命令行传入参数 解析器', )
-parser.add_argument('-d', '--project_root_dir', type=str, )  # 你的项目的根目录
-parser.add_argument('-s', '--start_shell_str', type=str, )
-parser.add_argument('-k', '--kill_contain_str', type=str, )
+parser.add_argument('-d', '--project_root_dir', type=str, required=True)  # 你的项目的根目录
+parser.add_argument('-s', '--start_shell_str', type=str, required=True)
+parser.add_argument('-k', '--kill_contain_str', type=str, required=True)
 command_args = parser.parse_args()  # type:argparse.Namespace
 
 start_shell_str = command_args.start_shell_str
