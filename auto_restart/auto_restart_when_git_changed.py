@@ -11,20 +11,20 @@ import argparse
 parser = argparse.ArgumentParser('helper命令行传入参数 解析器', )
 parser.add_argument('-d', '--project_root_dir', type=str, )  # 你的项目的根目录
 parser.add_argument('-s', '--start_shell_str', type=str, )
-# parser.add_argument('-n', '--script_name', type=str, )
+parser.add_argument('-k', '--kill_contain_str', type=str, )
 command_args = parser.parse_args()  # type:argparse.Namespace
 
 start_shell_str = command_args.start_shell_str
-# script_name = command_args.script_name
+kill_contain_str = command_args.kill_contain_str
 project_root_dir = command_args.project_root_dir
 
 
 def restart(args=None):
     os.system(f'cd {project_root_dir};git pull')
-    # kill_str = f'''ps -aux|grep {script_name} |grep -v grep|grep -v auto_restart_when_git_changed |grep -v  auto_restart_tool|awk '{{print $2}}' |xargs kill -9;'''
-    kill_str = f'''ps auxww | grep '{start_shell_str}' | grep -v grep|grep -v auto_restart_when_git_changed |grep -v  auto_restart_tool | awk '{{print $2}}' | xargs kill;'''
+    # kill_str = f'''ps -aux|grep {kill_contain_str} |grep -v grep|grep -v auto_restart_when_git_changed |grep -v  auto_restart_tool|awk '{{print $2}}' |xargs kill -9;'''
+    kill_str = f'''ps auxww | grep '{kill_contain_str}' | grep -v grep|grep -v auto_restart_when_git_changed |grep -v  auto_restart_tool | awk '{{print $2}}' | xargs kill;'''
     os.system(kill_str)
-    start_shell_str_full = f''' cd {project_root_dir};export PYTHONPATH=./:$PYTHONPATH;export kill_flag='{start_shell_str}';{start_shell_str}'''
+    start_shell_str_full = f''' cd {project_root_dir};export PYTHONPATH=./:$PYTHONPATH;{start_shell_str}'''
     threading.Thread(target=os.system, args=(start_shell_str_full,)).start()
     while True:
         time.sleep(20)
