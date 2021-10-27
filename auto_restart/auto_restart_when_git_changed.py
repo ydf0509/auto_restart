@@ -20,8 +20,11 @@ script_name = command_args.script_name
 def restart(args=None):
     kill_str = f'''ps -aux|grep {script_name} |grep -v grep|awk '{{print $2}}' |xargs kill -9;'''
     subprocess.getstatusoutput('git pull')
+    print('00000')
     os.system(kill_str)
+    print(1111)
     threading.Thread(target=os.system, args=(start_shell_str,)).start()
+    print(2222)
     while True:
         time.sleep(20)
         try:
