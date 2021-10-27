@@ -18,7 +18,7 @@
 
 auto_restart_tool -d /home/ydf/pycodes/auto_restart  -s  "python3  tests/test_git_change.py" -k tests/test_git_change.py
 
-auto_restart_tool命令是自动生成的，可以直接使用这条命令。
+auto_restart_tool命令是pip install auto_restart后自动生成的，可以直接使用这条命令。
 
 之后，只要当前分支的git内容有更新就会自动重启。
 
