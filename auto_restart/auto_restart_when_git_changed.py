@@ -34,7 +34,7 @@ def restart(args=None):
             if 'Already up-to-date' in r1[1] or '已经是最新的' in r1[1]:
                 print('no update')
                 continue
-        except Exception as e:  # 只要不在205的dev分支手动修改文件，一般不会出现拉取报错。
+        except Exception as e:  # 只要不linux测试环境的git项目里面手动修改文件，一般不会出现拉取冲突报错。
             subprocess.getstatusoutput(kill_str)
             print(e)
             break
