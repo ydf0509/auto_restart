@@ -1,7 +1,7 @@
-#1 安装 pip install auto_restart
+# 1 安装 pip install auto_restart
 
 
-#2  用途说明
+# 2  用途说明
 
 当检测到git内容发生变化后，自动重启部署，是冷部署不是热部署。
 
@@ -11,7 +11,7 @@
 # 3 用法
 建议安装screen, apt-get install screen，(也可以不安装这个screen，使用nohup启动脚本了那就需要)
 
-在screen会话里面 运行以下命令举个例子:
+在screen会话里面 ，运行以下命令举个例子:
 
 
 auto_restart_tool -d /home/ydf/pycodes/auto_restart  -s  "python3  tests/test_git_change.py" -k tests/test_git_change.py
