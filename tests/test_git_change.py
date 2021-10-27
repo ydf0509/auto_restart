@@ -8,4 +8,4 @@ from tests.pac1.m1 import show
 
 while 1:
     time.sleep(5)
-    show(67)
+    show(68)
