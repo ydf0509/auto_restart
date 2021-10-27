@@ -10,6 +10,6 @@
 
 在screen会话里面 运行以下命令:
 
-auto_restart -s  "cd /home/ydf/pycodes/auto_restart;export PYTHONPATH=./;python3  tests/test_git_change.py"  -n  test_git_change.py
+auto_restart -d "/home/ydf/pycodes/auto_restart"  -s  "python3  tests/test_git_change.py"  -n  test_git_change.py
 
 
