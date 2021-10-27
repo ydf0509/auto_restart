@@ -11,7 +11,7 @@ print(filepath)
 
 setup(
     name='auto_restart',  #
-    version="0.2",
+    version="0.3",
     description=('auto_restart'),
     keywords=("auto_restart", 'auto_restart'),
     # long_description=open('README.md', 'r',encoding='utf8').read(),
@@ -42,7 +42,7 @@ setup(
     entry_points={
         'console_scripts': [
             # 这一行是安装到命令行运行的关键
-            'auto_restart = auto_restart.auto_restart_when_git_changed'
+            'auto_restart = auto_restart.auto_restart_when_git_changed:restart'
         ]
     }
 )
@@ -51,7 +51,7 @@ setup(
 python setup.py sdist upload -r pypi
 
 
-python setup.py sdist & twine upload dist/auto_restart-0.2.tar.gz
+python setup.py sdist ; twine upload dist/auto_restart-0.3.tar.gz
 twine upload dist/*
 
 
