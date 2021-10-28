@@ -30,3 +30,10 @@ parser.add_argument('-d', '--project_root_dir', type=str, required=True)  # 你�
 parser.add_argument('-s', '--start_shell_str', type=str, required=True)   # 启动命令，
 parser.add_argument('-k', '--kill_contain_str', type=str, required=True)   # 杀死老进程，当字符串包含这个时候就当做老进程杀死。
 ```
+
+
+# 5  运行截图
+
+在win10上当把show函数的值从74改成75，并把代码合并到git后，linux测试环境极其不用手动重启会自动检测git更新并重启服务。
+
+![img.png](img.png)
