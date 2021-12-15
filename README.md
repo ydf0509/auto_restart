@@ -34,6 +34,6 @@ parser.add_argument('-k', '--kill_contain_str', type=str, required=True)   # 杀
 
 # 5  运行截图
 
-在win10上当把show函数的值从74改成75，并把代码合并到git后，linux测试环境极其不用手动重启会自动检测git更新并重启服务。
+在win10上当把show函数的值从74改成75，并把代码合并到git后，linux测试环境自己不用手动重启会自动检测git更新并重启服务。
 
 ![img.png](img.png)
